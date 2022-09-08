@@ -1,14 +1,13 @@
 package br.com.dionataferraz.vendas
 
+import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
-import androidx.appcompat.app.AppCompatActivity
 import br.com.dionataferraz.vendas.databinding.ActivityTransactionsBinding
 
-class TransactionsActivity : AppCompatActivity(), TransactionAdapter.Listener {
+class TransactionsActivity : AppCompatActivity(),TransactionAdapter.Listener {
 
     private lateinit var binding: ActivityTransactionsBinding
-
     private val adapter: TransactionAdapter by lazy {
         TransactionAdapter(this)
     }
@@ -17,6 +16,18 @@ class TransactionsActivity : AppCompatActivity(), TransactionAdapter.Listener {
         super.onCreate(savedInstanceState)
         binding = ActivityTransactionsBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        binding.button.setOnClickListener {
+            adapter.updateItem(
+                "MUDOU AQUI", 6
+            )
+/*            adapter.addNewList(
+                listOf(
+                    "Item 11",
+                    "Item 10",
+                    "Item 9"
+                )
+            )*/
+        }
 
         binding.rcList.adapter = adapter
         adapter.addList(
@@ -26,6 +37,12 @@ class TransactionsActivity : AppCompatActivity(), TransactionAdapter.Listener {
                 "Item 3",
                 "Item 4",
                 "Item 5",
+                "Item 6",
+                "Item 7",
+                "Item 8",
+                "Item 9",
+                "Item 10",
+                "Item 11",
             )
         )
     }
@@ -33,7 +50,7 @@ class TransactionsActivity : AppCompatActivity(), TransactionAdapter.Listener {
     override fun onItemClick(text: String) {
         Toast.makeText(
             this,
-            "Deu Bom",
+            text,
             Toast.LENGTH_LONG
         ).show()
     }
