@@ -8,7 +8,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        tools:context=".LoginActivity">
+        tools:context=".login.LoginActivity">
 
         <!-- https://material.io/components/text-fields/android#filled-text-field -->
         <com.google.android.material.textfield.TextInputLayout

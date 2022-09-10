@@ -15,4 +15,12 @@
     <string name="home_bank_balance">R$ 0,00</string>
     <string name="home_balance_available">Saldo disponivel</string>
     <string name="home_next_invoice">Próxima fatura</string>
+    <string name="back">back</string>
+    <string name="account_balance">account_balance</string>
+    <string name="name_user">name_user</string>
+    <string name="débito">débito</string>
+    <string name="d_bito">debito</string>
+    <string name="name_account">name</string>
+    <string name="credito">creditp</string>
+    <string name="login_sufix_email">email</string>
 </resources>
