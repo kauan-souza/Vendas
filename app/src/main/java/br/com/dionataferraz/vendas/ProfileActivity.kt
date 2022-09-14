@@ -1,6 +1,7 @@
 package br.com.dionataferraz.vendas
 
 import android.os.Bundle
+import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import br.com.dionataferraz.vendas.databinding.ActivityLoginBinding
@@ -37,12 +38,12 @@ class ProfileActivity : AppCompatActivity() {
         edit.putInt("age", 28)
         edit.apply()
 
-        /*findViewById<TextView>(R.id.tv_name).apply {
+        findViewById<TextView>(R.id.tv_name).apply {
             val name = sharedPreferences.getString("name", null)
             val age = sharedPreferences.getInt("age", 0)
             if (!name.isNullOrEmpty() && age > 0) {
                 text = "$name $age"
             }
-        }*/
+        }
     }
 }

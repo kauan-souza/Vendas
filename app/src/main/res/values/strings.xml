@@ -17,4 +17,10 @@
     <string name="home_next_invoice">Próxima fatura</string>
     <string name="novo_por_aqui">Novo por aqui?</string>
     <string name="registrar">Registrar</string>
+    <string name="back">Back</string>
+    <string name="name_account">Name Account</string>
+    <string name="account_balance">Account Balance</string>
+    <string name="name_user">Name User</string>
+    <string name="debito">Débito</string>
+    <string name="credito">Crédito</string>
 </resources>
