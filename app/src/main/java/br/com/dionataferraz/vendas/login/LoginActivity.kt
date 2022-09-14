@@ -21,13 +21,16 @@ class LoginActivity : AppCompatActivity() {
         setContentView(view)
 
         binding.btLogin.setOnClickListener {
-            viewModel.login(null, null)
-            val intent  = Intent(this, HomeActivity::class.java)
+            viewModel.login(
+                binding.etEmail.text.toString(),
+                binding.etPassword.text.toString()
+            )
+            val intent = Intent(this, HomeActivity::class.java)
             startActivity(intent)
         }
 
         viewModel.shouldShowError.observe(this) { shouldShow ->
-            if (shouldShow){
+            if (shouldShow) {
                 Toast.makeText(
                     this,
                     "Deu ruim",

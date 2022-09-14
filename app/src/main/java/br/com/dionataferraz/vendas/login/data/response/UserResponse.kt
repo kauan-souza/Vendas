@@ -1,4 +1,4 @@
-package br.com.dionataferraz.vendas.login.data.responde
+package br.com.dionataferraz.vendas.login.data.response
 
 data class UserResponse(
     val name: String,

@@ -1,6 +1,6 @@
 package br.com.dionataferraz.vendas.login.data.remote
 
-import br.com.dionataferraz.vendas.login.data.responde.UserResponse
+import br.com.dionataferraz.vendas.login.data.response.UserResponse
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 import retrofit2.create
