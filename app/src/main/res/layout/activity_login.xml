@@ -10,6 +10,16 @@
         android:orientation="vertical"
         tools:context=".LoginActivity">
 
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/logo_fundatec"
+            app:layout_constraintBottom_toBottomOf="@+id/ti_email"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/ti_email"
             android:layout_width="match_parent"
@@ -54,6 +64,28 @@
             android:text="@string/login"
             app:layout_constraintEnd_toEndOf="@+id/ti_password"
             app:layout_constraintTop_toBottomOf="@+id/ti_password" />
+
+        <TextView
+            android:id="@+id/tv_novo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp"
+            android:text="@string/novo_por_aqui"
+            android:textSize="15dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/bt_registrar"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <TextView
+            android:id="@+id/bt_registrar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/registrar"
+            android:textColor="@color/design_default_color_primary"
+            android:textSize="15dp"
+            app:layout_constraintBottom_toBottomOf="@+id/tv_novo"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/tv_novo" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
