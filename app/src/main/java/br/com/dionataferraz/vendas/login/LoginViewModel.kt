@@ -17,10 +17,16 @@ class LoginViewModel : ViewModel() {
     private val error: MutableLiveData<Boolean> = MutableLiveData(false)
     val shouldShowError: LiveData<Boolean> = error
 
+    private val home: MutableLiveData<Boolean> = MutableLiveData(false)
+    val shouldShowHome: LiveData<Boolean> = home
+
     fun login(email: String?, password: String?) {
         viewModelScope.launch {
             if (email != null && password != null) {
                 val user = usecase.login(email = email, password = password)
+                if(user.get() != null){
+                    home.value = true
+                }
                 Log.e("login", user.get().toString())
             } else {
                 error.value = true
