@@ -21,12 +21,18 @@ class LoginActivity : AppCompatActivity() {
 
         binding.btLogin.setOnClickListener {
             viewModel.login(null, null)
-            val intent  = Intent(this, HomeActivity::class.java)
+
+            val intent = Intent(this, HomeActivity::class.java)
+            startActivity(intent)
+        }
+
+        binding.btRegistrar.setOnClickListener {
+            val intent = Intent(this, HomeActivity::class.java)
             startActivity(intent)
         }
 
         viewModel.shouldShowError.observe(this) { shouldShow ->
-            if (shouldShow){
+            if (shouldShow) {
                 Toast.makeText(
                     this,
                     "Deu ruim",
