@@ -17,6 +17,7 @@ class ProfileActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityProfileBinding.inflate(layoutInflater)
 
+        setContentView(binding.root)
         binding.btSave.setOnClickListener {
             Toast.makeText(this,  binding.rg.checkedRadioButtonId.toString(), Toast.LENGTH_LONG).show()
         }

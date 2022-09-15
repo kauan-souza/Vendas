@@ -4,6 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.widget.RadioButton
 import android.widget.RadioGroup
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import br.com.dionataferraz.vendas.databinding.ActivityAccountBinding
 import com.squareup.moshi.Moshi
@@ -43,7 +44,7 @@ class AccountActivity : AppCompatActivity() {
             .adapter(AccountActivity.Account::class.java)
 
         fun callProfileActivity() {
-            val intent = Intent(this, ProfileActivity::class.java)
+            val intent = Intent(this, HomeActivity::class.java)
             startActivity(intent)
             finish()
         }
@@ -57,7 +58,7 @@ class AccountActivity : AppCompatActivity() {
             val nameUser = binding.etResponsible.text.toString()
             val accountRB: String = radioButton?.text.toString()
 
-           val aaa = viewModel.createAccount(
+           viewModel.createAccount(
                 nameAccount,
                 accountBalance,
                 nameUser ,
@@ -67,11 +68,16 @@ class AccountActivity : AppCompatActivity() {
             viewModel.accountLiveData.observe(this) { account ->
                 val edit = sharedPreferences.edit()
 
-                val personSave = adapter.toJson(account)
-                edit.putString("Account", personSave)
+                val accountSave = adapter.toJson(account)
+                edit.putString("Account", accountSave)
                 edit.apply()
 
                 callProfileActivity()
+                Toast.makeText(
+                    this,
+                    accountSave,
+                    Toast.LENGTH_LONG
+                ).show()
             }
         }
 
@@ -84,7 +90,5 @@ class AccountActivity : AppCompatActivity() {
         val accountRB: String
     )
 
-    private fun configureActionBar(){
-        supportActionBar?.setDisplayHomeAsUpEnabled(true)
-    }
+
 }
