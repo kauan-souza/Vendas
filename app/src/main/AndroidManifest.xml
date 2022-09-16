@@ -17,11 +17,17 @@
             android:name=".HomeActivity"
             android:exported="false" />
         <activity
+            android:name=".AccountActivity"
+            android:exported="false"/>
+        <activity
             android:name=".TransactionsActivity"
             android:exported="false" />
         <activity
             android:name=".ProfileActivity"
             android:exported="false" />
+        <activity
+            android:name=".LoginActivity"
+            android:exported="true" />
         <activity
             android:name=".SplashActivity"
             android:exported="true"
@@ -32,9 +38,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity
-            android:name=".LoginActivity"
-            android:exported="true" />
     </application>
 
 </manifest>
