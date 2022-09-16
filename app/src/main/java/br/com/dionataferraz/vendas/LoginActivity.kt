@@ -27,7 +27,7 @@ class LoginActivity : AppCompatActivity() {
         }
 
         binding.btRegistrar.setOnClickListener {
-            val intent = Intent(this, AccountActivity::class.java)
+            val intent = Intent(this, ProfileActivity::class.java)
             startActivity(intent)
         }
 
