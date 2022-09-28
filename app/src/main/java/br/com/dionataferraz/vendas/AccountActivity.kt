@@ -1,19 +1,23 @@
 package br.com.dionataferraz.vendas
 
-import android.content.Intent
 import android.os.Bundle
-import android.widget.RadioButton
-import android.widget.RadioGroup
-import android.widget.Toast
+import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
+import br.com.dionataferraz.vendas.data.local.AccountEntity
+import br.com.dionataferraz.vendas.data.local.VendasDatabase
 import br.com.dionataferraz.vendas.databinding.ActivityAccountBinding
-import com.squareup.moshi.Moshi
-import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
 
 class AccountActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityAccountBinding
     private lateinit var viewModel: AccountViewModel
+
+    private val database: VendasDatabase by lazy {
+        VendasDatabase.getInstance(this)
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -25,70 +29,24 @@ class AccountActivity : AppCompatActivity() {
         val view = binding.root
         setContentView(view)
 
-        binding.btBack.setOnClickListener {
-            val intent = Intent(this, LoginActivity::class.java)
-            startActivity(intent)
-        }
-
-        val sharedPreferences = getSharedPreferences(
-            "Profile",
-            MODE_PRIVATE
-        )
-
-        val moshi = Moshi
-            .Builder()
-            .addLast(KotlinJsonAdapterFactory())
-            .build()
-
-        val adapter = moshi
-            .adapter(AccountActivity.Account::class.java)
-
-        fun callProfileActivity() {
-            val intent = Intent(this, HomeActivity::class.java)
-            startActivity(intent)
-            finish()
-        }
-        binding.btSave.setOnClickListener {
-            val radioGroup: RadioGroup = binding.rbAccount
-            val radioButtonSelected: Int = radioGroup.checkedRadioButtonId
-            val radioButton: RadioButton? = findViewById(radioButtonSelected)
-
-            val nameAccount = binding.etDescription.text.toString()
+        binding.btAdd.setOnClickListener {
             val accountBalance = binding.etValue.text.toString()
-            val nameUser = binding.etResponsible.text.toString()
-            val accountRB: String = radioButton?.text.toString()
-
-            viewModel.createAccount(
-                nameAccount,
-                accountBalance,
-                nameUser,
-                accountRB
-            )
-
+        }
             viewModel.accountLiveData.observe(this) { account ->
-                val edit = sharedPreferences.edit()
 
-                val accountSave = adapter.toJson(account)
-                edit.putString("Account", accountSave)
-                edit.apply()
 
-                callProfileActivity()
-                Toast.makeText(
-                    this,
-                    accountSave,
-                    Toast.LENGTH_LONG
-                ).show()
-            }
         }
 
+        val aaa = AccountEntity(accountBalance = 100)
+
+//        CoroutineScope(Dispatchers.IO).launch {
+//
+//            database.DAO().insertAccount(aaa)
+//
+//            val account = database.DAO().getAccount()
+//            Log.e("DAO ", account.toString())
+//
+//        }
     }
-
-    data class Account(
-        val nameAccount: String,
-        val accountBalance: String,
-        val nameUser: String,
-        val accountRB: String
-    )
-
 
 }
