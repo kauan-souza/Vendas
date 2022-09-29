@@ -9,4 +9,11 @@ data class AccountEntity(
     @PrimaryKey(autoGenerate = true)
     val id: Int = 0,
     val accountBalance: Int,
+    val type: Type,
+    val date: String
 )
+
+enum class Type {
+    RETIRADA,
+    INSERIR
+}

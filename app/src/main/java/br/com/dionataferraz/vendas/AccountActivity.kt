@@ -2,22 +2,19 @@ package br.com.dionataferraz.vendas
 
 import android.os.Bundle
 import android.util.Log
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import br.com.dionataferraz.vendas.data.local.AccountEntity
-import br.com.dionataferraz.vendas.data.local.VendasDatabase
+import br.com.dionataferraz.vendas.data.local.Type
 import br.com.dionataferraz.vendas.databinding.ActivityAccountBinding
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.launch
+import java.time.LocalDate
+import java.time.LocalDate.now
+import java.util.*
 
 class AccountActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityAccountBinding
     private lateinit var viewModel: AccountViewModel
-
-    private val database: VendasDatabase by lazy {
-        VendasDatabase.getInstance(this)
-    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -30,23 +27,34 @@ class AccountActivity : AppCompatActivity() {
         setContentView(view)
 
         binding.btAdd.setOnClickListener {
-            val accountBalance = binding.etValue.text.toString()
+            val value = binding.etValue.text.toString()
+
+            viewModel.account(value.toInt(), type = Type.INSERIR, date = "28/09/2022")
+
+            Log.e("add ", value.toString())
         }
-            viewModel.accountLiveData.observe(this) { account ->
 
+        binding.btRemove.setOnClickListener {
+            val value = binding.etValue.text.toString()
 
+            viewModel.account(value.toInt(), type = Type.RETIRADA, date = "28/09/2022")
+            Log.e("remove ", value.toString())
         }
 
-        val aaa = AccountEntity(accountBalance = 100)
+        fun soma() {
+            return
+            val list: List<AccountEntity> = listOf()
+            val valorRetirada =
+                list.filter { it.type == Type.RETIRADA }.sumOf { it.accountBalance }
+            val valorInserido =
+                list.filter { it.type == Type.INSERIR }.sumOf { it.accountBalance }
+        }
+        Toast.makeText(
+            this,
+            soma().toString(),
+            Toast.LENGTH_LONG
+        ).show()
 
-//        CoroutineScope(Dispatchers.IO).launch {
-//
-//            database.DAO().insertAccount(aaa)
-//
-//            val account = database.DAO().getAccount()
-//            Log.e("DAO ", account.toString())
-//
-//        }
     }
 
 }

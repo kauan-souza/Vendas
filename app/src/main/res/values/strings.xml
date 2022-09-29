@@ -22,4 +22,5 @@
     <string name="name_user">Name User</string>
     <string name="debito">Débito</string>
     <string name="credito">Crédito</string>
+    <string name="nova_transacao">Nova Transação</string>
 </resources>

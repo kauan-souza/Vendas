@@ -1,8 +1,9 @@
 package br.com.dionataferraz.vendas
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.appcompat.app.AppCompatActivity
+import br.com.dionataferraz.vendas.data.local.AccountEntity
 import br.com.dionataferraz.vendas.databinding.ActivityHomeBinding
 
 class HomeActivity : AppCompatActivity() {
@@ -18,6 +19,11 @@ class HomeActivity : AppCompatActivity() {
 
         binding.btGoAccount.setOnClickListener() {
 
+        val intent = Intent(this, AccountActivity::class.java)
+            startActivity(intent)
+        }
+
+        binding.btSave2.setOnClickListener() {
             val intent = Intent(this, AccountActivity::class.java)
             startActivity(intent)
         }

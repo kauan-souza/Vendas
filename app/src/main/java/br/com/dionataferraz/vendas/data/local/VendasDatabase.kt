@@ -12,7 +12,7 @@ abstract class VendasDatabase : RoomDatabase() {
     abstract fun DAO(): AccountDao
 
     companion object {
-        fun getInstance(context: Context): VendasDatabase {
+        fun getInstance(): VendasDatabase {
             return Room.databaseBuilder(
                 App.context,
                 VendasDatabase::class.java,
