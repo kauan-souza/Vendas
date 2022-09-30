@@ -48,7 +48,9 @@ class TransactionViewHolder(
 
     fun bind(account: AccountModel) {
         Log.e("TransactionViewHolder ", account.toString())
-        binding.tvName.text = account.accountBalance.toString()
+        binding.tvAccountBalance.text = account.accountBalance.toString()
+        binding.tvDate.text = account.date
+        binding.tvType.text = account.type.toString()
         binding.root.setOnClickListener {
             listener.onItemClick(account.toString())
         }
