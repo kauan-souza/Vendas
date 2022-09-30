@@ -2,13 +2,12 @@ package br.com.dionataferraz.vendas.data.repository
 
 import br.com.dionataferraz.vendas.data.local.AccountModel
 import br.com.dionataferraz.vendas.data.local.Type
-import br.com.dionataferraz.vendas.data.remote.AccountDataSource
-import java.util.*
+import br.com.dionataferraz.vendas.data.local.LocalDataSource
 
 class AccountRepository {
 
     private val remoteDataSource by lazy {
-        AccountDataSource()
+        LocalDataSource()
     }
 
     suspend fun inserir(accountBalance: Int, type: Type, date: String) {

@@ -20,16 +20,16 @@
             android:name=".HomeActivity"
             android:exported="false" />
         <activity
-            android:name=".AccountActivity"
+            android:name=".account.AccountActivity"
             android:exported="false"/>
         <activity
-            android:name=".TransactionsActivity"
+            android:name=".transactions.TransactionsActivity"
             android:exported="false" />
         <activity
             android:name=".ProfileActivity"
             android:exported="false" />
         <activity
-            android:name=".LoginActivity"
+            android:name=".login.LoginActivity"
             android:exported="true" />
         <activity
             android:name=".SplashActivity"

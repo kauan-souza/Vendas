@@ -1,9 +1,10 @@
-package br.com.dionataferraz.vendas
+package br.com.dionataferraz.vendas.transactions
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.widget.Toast
+import br.com.dionataferraz.vendas.TransactionAdapter
 import br.com.dionataferraz.vendas.data.TransactionViewModel
 import br.com.dionataferraz.vendas.databinding.ActivityTransactionsBinding
 

@@ -1,10 +1,9 @@
-package br.com.dionataferraz.vendas
+package br.com.dionataferraz.vendas.account
 
 import android.os.Bundle
 import android.util.Log
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import br.com.dionataferraz.vendas.data.local.AccountEntity
+import br.com.dionataferraz.vendas.R
 import br.com.dionataferraz.vendas.data.local.Type
 import br.com.dionataferraz.vendas.databinding.ActivityAccountBinding
 
@@ -26,7 +25,7 @@ class AccountActivity : AppCompatActivity() {
         binding.btAdd.setOnClickListener {
             val value = binding.etValue.text.toString()
 
-            viewModel.account(value.toInt(), type = Type.INSERIR, date = "28/09/2022")
+            viewModel.account(value.toInt(), type = Type.DEPOSITO, date = "28/09/2022")
 
             Log.e("add ", value.toString())
         }
@@ -34,7 +33,7 @@ class AccountActivity : AppCompatActivity() {
         binding.btRemove.setOnClickListener {
             val value = binding.etValue.text.toString()
 
-            viewModel.account(value.toInt(), type = Type.RETIRADA, date = "28/09/2022")
+            viewModel.account(value.toInt(), type = Type.SAQUE, date = "28/09/2022")
             Log.e("remove ", value.toString())
         }
 

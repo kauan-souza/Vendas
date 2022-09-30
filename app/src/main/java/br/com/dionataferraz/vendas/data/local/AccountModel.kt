@@ -7,6 +7,6 @@ data class AccountModel(
 )
 
 enum class Type(val action: String) {
-    RETIRADA("retirada"),
-    INSERIR("inserir")
+    SAQUE("retirada"),
+    DEPOSITO("inserir")
 }

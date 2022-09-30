@@ -1,14 +1,9 @@
-package br.com.dionataferraz.vendas.data.remote
+package br.com.dionataferraz.vendas.data.local
 
-import android.util.Log
-import br.com.dionataferraz.vendas.data.local.AccountEntity
-import br.com.dionataferraz.vendas.data.local.AccountModel
-import br.com.dionataferraz.vendas.data.local.Type
-import br.com.dionataferraz.vendas.data.local.VendasDatabase
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 
-class AccountDataSource {
+class LocalDataSource {
 
     private val database: VendasDatabase by lazy {
         VendasDatabase.getInstance()
