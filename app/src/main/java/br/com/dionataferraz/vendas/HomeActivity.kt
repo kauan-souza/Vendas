@@ -16,15 +16,19 @@ class HomeActivity : AppCompatActivity() {
             binding = this
             setContentView(root)
         }
-
-        binding.btGoAccount.setOnClickListener() {
-
-        val intent = Intent(this, AccountActivity::class.java)
-            startActivity(intent)
-        }
+//
+//        binding.btGoAccount.setOnClickListener() {
+//
+//        val intent = Intent(this, AccountActivity::class.java)
+//            startActivity(intent)
+//        }
 
         binding.btSave2.setOnClickListener() {
             val intent = Intent(this, AccountActivity::class.java)
+            startActivity(intent)
+        }
+        binding.btSave3.setOnClickListener() {
+            val intent = Intent(this, TransactionsActivity::class.java)
             startActivity(intent)
         }
     }

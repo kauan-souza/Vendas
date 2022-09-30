@@ -23,4 +23,5 @@
     <string name="debito">Débito</string>
     <string name="credito">Crédito</string>
     <string name="nova_transacao">Nova Transação</string>
+    <string name="transacoes">Transaçôes</string>
 </resources>

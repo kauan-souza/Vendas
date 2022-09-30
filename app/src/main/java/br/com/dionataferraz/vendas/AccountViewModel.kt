@@ -6,16 +6,15 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import br.com.dionataferraz.vendas.data.domain.usecase.getAccountUsecase
+import br.com.dionataferraz.vendas.data.domain.usecase.GetAccountUsecase
 import br.com.dionataferraz.vendas.data.local.AccountEntity
 import br.com.dionataferraz.vendas.data.local.Type
 import kotlinx.coroutines.launch
-import java.util.*
 
 class AccountViewModel : ViewModel() {
 
     private val usecase by lazy {
-        getAccountUsecase()
+        GetAccountUsecase()
     }
 
     private val account: MutableLiveData<AccountEntity> = MutableLiveData()
@@ -23,7 +22,8 @@ class AccountViewModel : ViewModel() {
 
     fun account(accountBalance: Int, type: Type, date: String) {
         viewModelScope.launch {
-            val user = usecase.account(accountBalance = accountBalance, type = type, date = date)
+
+            val user = usecase.inserir(accountBalance = accountBalance, type = type, date = date)
             Log.e("ACCOUNT ", user.toString())
         }
 

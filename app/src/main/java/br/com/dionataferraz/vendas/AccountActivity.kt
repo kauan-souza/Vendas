@@ -7,9 +7,6 @@ import androidx.appcompat.app.AppCompatActivity
 import br.com.dionataferraz.vendas.data.local.AccountEntity
 import br.com.dionataferraz.vendas.data.local.Type
 import br.com.dionataferraz.vendas.databinding.ActivityAccountBinding
-import java.time.LocalDate
-import java.time.LocalDate.now
-import java.util.*
 
 class AccountActivity : AppCompatActivity() {
 
@@ -41,20 +38,20 @@ class AccountActivity : AppCompatActivity() {
             Log.e("remove ", value.toString())
         }
 
-        fun soma() {
-            return
-            val list: List<AccountEntity> = listOf()
-            val valorRetirada =
-                list.filter { it.type == Type.RETIRADA }.sumOf { it.accountBalance }
-            val valorInserido =
-                list.filter { it.type == Type.INSERIR }.sumOf { it.accountBalance }
-        }
-        Toast.makeText(
-            this,
-            soma().toString(),
-            Toast.LENGTH_LONG
-        ).show()
-
-    }
+//        fun soma() {
+//            return
+//            val list: List<AccountEntity> = listOf()
+//            val valorRetirada =
+//                list.filter { it.type == Type.RETIRADA }.sumOf { it.accountBalance }
+//            val valorInserido =
+//                list.filter { it.type == Type.INSERIR }.sumOf { it.accountBalance }
+//        }
+//        Toast.makeText(
+//            this,
+//            soma().toString(),
+//            Toast.LENGTH_LONG
+//        ).show()
+//
+  }
 
 }

@@ -2,11 +2,11 @@ package br.com.dionataferraz.vendas.data.remote
 
 import android.util.Log
 import br.com.dionataferraz.vendas.data.local.AccountEntity
+import br.com.dionataferraz.vendas.data.local.AccountModel
 import br.com.dionataferraz.vendas.data.local.Type
 import br.com.dionataferraz.vendas.data.local.VendasDatabase
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
-import java.util.*
 
 class AccountDataSource {
 
@@ -14,7 +14,7 @@ class AccountDataSource {
         VendasDatabase.getInstance()
     }
 
-    suspend fun account(accountBalance: Int, type: Type, date: String) {
+    suspend fun inserir(accountBalance: Int, type: Type, date: String) {
         return withContext(Dispatchers.IO) {
             database.DAO()
                 .insertAccount(
@@ -25,8 +25,21 @@ class AccountDataSource {
                     )
                 )
 
-            val account = database.DAO().getAccount()
-            Log.e("account ", account.toString())
+        }
+    }
+
+    suspend fun buscar(): List<AccountModel> {
+        return withContext(Dispatchers.IO) {
+            database.DAO()
+                .getAccount().map {
+                    AccountModel(
+                        accountBalance = it.accountBalance,
+                        type = it.type,
+                        date = it.date
+                    )
+                }
+
+
         }
     }
 

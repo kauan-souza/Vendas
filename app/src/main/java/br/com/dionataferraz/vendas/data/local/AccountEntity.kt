@@ -13,7 +13,3 @@ data class AccountEntity(
     val date: String
 )
 
-enum class Type {
-    RETIRADA,
-    INSERIR
-}

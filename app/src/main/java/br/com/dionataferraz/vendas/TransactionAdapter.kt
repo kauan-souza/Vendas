@@ -1,8 +1,10 @@
 package br.com.dionataferraz.vendas
 
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import br.com.dionataferraz.vendas.data.local.AccountModel
 import br.com.dionataferraz.vendas.databinding.ItemListBinding
 
 class TransactionAdapter(private val listener: Listener) :
@@ -12,7 +14,7 @@ class TransactionAdapter(private val listener: Listener) :
         fun onItemClick(text: String)
     }
 
-    private val listItem: MutableList<String> = mutableListOf()
+    private val listItem: MutableList<AccountModel> = mutableListOf()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): TransactionViewHolder {
         val binding = ItemListBinding.inflate(LayoutInflater.from(parent.context), parent, false)
@@ -27,18 +29,14 @@ class TransactionAdapter(private val listener: Listener) :
     override fun getItemCount(): Int {
         return listItem.size
     }
-    fun addNewList(list: List<String>) {
+    fun addNewList(list: List<AccountModel>) {
         listItem.clear()
         notifyItemRangeRemoved(0, listItem.size)
         listItem.addAll(list)
     }
 
-    fun addList(list: List<String>) {
+    fun addList(list: List<AccountModel>) {
         listItem.addAll(list)
-    }
-    fun updateItem(item: String, position: Int) {
-        listItem[position] = item
-        notifyItemChanged(position)
     }
 
 }
@@ -48,10 +46,11 @@ class TransactionViewHolder(
     private val listener: TransactionAdapter.Listener
 ): RecyclerView.ViewHolder(binding.root) {
 
-    fun bind(name: String) {
-        binding.tvName.text = name
+    fun bind(account: AccountModel) {
+        Log.e("TransactionViewHolder ", account.toString())
+        binding.tvName.text = account.accountBalance.toString()
         binding.root.setOnClickListener {
-            listener.onItemClick(name)
+            listener.onItemClick(account.toString())
         }
     }
 }
