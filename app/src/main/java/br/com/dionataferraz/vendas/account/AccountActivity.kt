@@ -6,6 +6,8 @@ import androidx.appcompat.app.AppCompatActivity
 import br.com.dionataferraz.vendas.R
 import br.com.dionataferraz.vendas.data.local.Type
 import br.com.dionataferraz.vendas.databinding.ActivityAccountBinding
+import java.text.SimpleDateFormat
+import java.util.*
 
 class AccountActivity : AppCompatActivity() {
 
@@ -25,15 +27,16 @@ class AccountActivity : AppCompatActivity() {
         binding.btAdd.setOnClickListener {
             val value = binding.etValue.text.toString()
 
-            viewModel.account(value.toInt(), type = Type.DEPOSITO, date = "28/09/2022")
+            viewModel.account(value.toInt(), type = Type.DEPOSITO,
+                date = SimpleDateFormat("yyyy-MM-dd").format(Date()))
 
             Log.e("add ", value.toString())
         }
 
         binding.btRemove.setOnClickListener {
-            val value = binding.etValue.text.toString()
+            val value = "aqui " + binding.etValue.text.toString()
 
-            viewModel.account(value.toInt(), type = Type.SAQUE, date = "28/09/2022")
+            viewModel.account(value.toInt(), type = Type.SAQUE, date = SimpleDateFormat("yyyy-MM-dd").format(Date()))
             Log.e("remove ", value.toString())
         }
 
