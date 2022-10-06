@@ -10,21 +10,31 @@ import br.com.dionataferraz.vendas.transactions.TransactionsActivity
 class HomeActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityHomeBinding
+    private lateinit var viewModel: HomeViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         ActivityHomeBinding.inflate(layoutInflater).run {
             binding = this
             setContentView(root)
+            viewModel = HomeViewModel()
         }
 
-        binding.btSave2.setOnClickListener() {
+        viewModel.showBalance.observe(this) {
+            binding.tvAccountBalance.text = it.toString()
+        }
+
+        binding.btSave2.setOnClickListener {
             val intent = Intent(this, AccountActivity::class.java)
             startActivity(intent)
         }
-        binding.btSave3.setOnClickListener() {
+        binding.btSave3.setOnClickListener {
             val intent = Intent(this, TransactionsActivity::class.java)
             startActivity(intent)
         }
+    }
+    override fun onStart() {
+        super.onStart()
+        viewModel.getBalance()
     }
 }

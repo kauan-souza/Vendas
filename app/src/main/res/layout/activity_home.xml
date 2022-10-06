@@ -118,15 +118,6 @@
             app:layout_constraintStart_toStartOf="@+id/tv_account_place_holder"
             app:layout_constraintTop_toBottomOf="@+id/tv_account_place_holder" />
 
-        <!--        <com.google.android.material.floatingactionbutton.FloatingActionButton-->
-<!--            android:id="@+id/bt_goAccount"-->
-<!--            android:layout_width="wrap_content"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:layout_marginBottom="30dp"-->
-<!--            app:backgroundTint="@color/gray_shark"-->
-<!--            android:src="@drawable/ic_account"-->
-<!--            app:layout_constraintBottom_toBottomOf="parent"-->
-<!--            app:layout_constraintEnd_toEndOf="@+id/bt_save2" />-->
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

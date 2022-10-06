@@ -1,7 +1,7 @@
 package br.com.dionataferraz.vendas.data.local
 
 data class AccountModel(
-    val accountBalance: Int,
+    val accountBalance: Double,
     val type: Type,
     val date: String
 )

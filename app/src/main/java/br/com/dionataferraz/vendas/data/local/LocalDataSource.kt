@@ -1,5 +1,6 @@
 package br.com.dionataferraz.vendas.data.local
 
+import android.util.Log
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 
@@ -9,7 +10,7 @@ class LocalDataSource {
         VendasDatabase.getInstance()
     }
 
-    suspend fun inserir(accountBalance: Int, type: Type, date: String) {
+    suspend fun inserir(accountBalance: Double, type: Type, date: String) {
         return withContext(Dispatchers.IO) {
             database.DAO()
                 .insertAccount(
@@ -34,9 +35,17 @@ class LocalDataSource {
                     )
                 }
 
+        }
+    }
 
+    suspend fun findBalance(): Double {
+        return withContext(Dispatchers.IO) {
+            val aaa = database.DAO().findBalance()
+            Log.e("dataSource ", aaa.toString())
+            aaa
         }
     }
 
 
 }
+

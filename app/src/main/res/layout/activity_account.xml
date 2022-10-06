@@ -31,11 +31,10 @@
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="100dp"
-            android:hint="@string/account_balance"
+            android:hint="Insira o valor da Transação."
             android:padding="16dp"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
+            app:layout_constraintTop_toTopOf="@+id/toolbar">
 
 
             <com.google.android.material.textfield.TextInputEditText
@@ -51,17 +50,19 @@
             android:id="@+id/bt_add"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="  deposit  "
+            android:text="@string/deposito"
+            android:layout_marginRight="20dp"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/bt_remove"
+            app:layout_constraintEnd_toEndOf="@+id/bt_remove"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/ti_value" />
+            app:layout_constraintTop_toTopOf="@+id/ti_value" />
 
         <Button
             android:id="@+id/bt_remove"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="withdrawal"
+            android:text="@string/saque"
+            android:layout_marginLeft="20dp"
             app:layout_constraintBottom_toBottomOf="@+id/bt_add"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="@+id/bt_add" />

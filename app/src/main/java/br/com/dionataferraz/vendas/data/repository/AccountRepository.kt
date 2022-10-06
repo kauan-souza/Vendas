@@ -10,12 +10,17 @@ class AccountRepository {
         LocalDataSource()
     }
 
-    suspend fun inserir(accountBalance: Int, type: Type, date: String) {
+    suspend fun inserir(accountBalance: Double, type: Type, date: String) {
         remoteDataSource.inserir(accountBalance = accountBalance, type = type, date = date)
     }
 
     suspend fun buscar(): List<AccountModel> {
         return remoteDataSource.buscar()
     }
+
+    suspend fun findBalance(): Double {
+        return remoteDataSource.findBalance()
+    }
+
 
 }

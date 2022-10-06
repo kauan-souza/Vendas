@@ -8,7 +8,7 @@ import java.util.*
 data class AccountEntity(
     @PrimaryKey(autoGenerate = true)
     val id: Int = 0,
-    val accountBalance: Int,
+    val accountBalance: Double,
     val type: Type,
     val date: String
 )

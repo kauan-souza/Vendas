@@ -1,13 +1,10 @@
 package br.com.dionataferraz.vendas.account
 
 import android.os.Bundle
-import android.util.Log
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import br.com.dionataferraz.vendas.R
-import br.com.dionataferraz.vendas.data.local.Type
 import br.com.dionataferraz.vendas.databinding.ActivityAccountBinding
-import java.text.SimpleDateFormat
-import java.util.*
 
 class AccountActivity : AppCompatActivity() {
 
@@ -24,36 +21,36 @@ class AccountActivity : AppCompatActivity() {
         val view = binding.root
         setContentView(view)
 
+        viewModel.exceptionLiveData.observe(this) { it ->
+            when (it) {
+                Error.Empty -> showToast("vazio")
+                Error.InsufficientValue -> showToast("valor insuficiente")
+            }
+        }
+
         binding.btAdd.setOnClickListener {
-            val value = binding.etValue.text.toString()
 
-            viewModel.account(value.toInt(), type = Type.DEPOSITO,
-                date = SimpleDateFormat("yyyy-MM-dd").format(Date()))
+            viewModel.deposito(
+                accountBalance = binding.etValue.text.toString(),
+            )
 
-            Log.e("add ", value.toString())
         }
 
         binding.btRemove.setOnClickListener {
-            val value = "aqui " + binding.etValue.text.toString()
 
-            viewModel.account(value.toInt(), type = Type.SAQUE, date = SimpleDateFormat("yyyy-MM-dd").format(Date()))
-            Log.e("remove ", value.toString())
+            viewModel.saque(
+                accountBalance = binding.etValue.text.toString(),
+            )
+
         }
 
-//        fun soma() {
-//            return
-//            val list: List<AccountEntity> = listOf()
-//            val valorRetirada =
-//                list.filter { it.type == Type.RETIRADA }.sumOf { it.accountBalance }
-//            val valorInserido =
-//                list.filter { it.type == Type.INSERIR }.sumOf { it.accountBalance }
-//        }
-//        Toast.makeText(
-//            this,
-//            soma().toString(),
-//            Toast.LENGTH_LONG
-//        ).show()
-//
-  }
+    }
 
+    private fun showToast(msg: String) {
+        Toast.makeText(
+            this,
+            msg,
+            Toast.LENGTH_SHORT
+        ).show()
+    }
 }

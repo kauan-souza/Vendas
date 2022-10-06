@@ -1,9 +1,8 @@
 package br.com.dionataferraz.vendas.transactions
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import br.com.dionataferraz.vendas.TransactionAdapter
 import br.com.dionataferraz.vendas.data.TransactionViewModel
 import br.com.dionataferraz.vendas.databinding.ActivityTransactionsBinding
@@ -20,6 +19,7 @@ class TransactionsActivity : AppCompatActivity(), TransactionAdapter.Listener {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
         binding = ActivityTransactionsBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
@@ -29,7 +29,6 @@ class TransactionsActivity : AppCompatActivity(), TransactionAdapter.Listener {
 
             binding.rcList.adapter = adapter
 
-            Log.e("account ", it.toString())
             adapter.addList(it)
         }
 
