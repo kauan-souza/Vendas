@@ -8,22 +8,23 @@
             android:layout_height="80dp">
 
             <View
+                android:id="@+id/view"
                 android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:background="@color/black"
-                app:layout_constraintBottom_toBottomOf="parent"/>
+                android:layout_height="3dp"
+                android:background="@color/gray_shark"
+                app:layout_constraintBottom_toBottomOf="parent" />
 
             <TextView
                 android:id="@+id/tv_accountBalance"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:padding="8dp"
                 android:textColor="@color/black"
                 android:textSize="20sp"
+                android:paddingTop="8dp"
                 app:layout_constraintEnd_toStartOf="@+id/tv_type"
                 app:layout_constraintStart_toStartOf="parent"
-                tools:text="value"
-                tools:ignore="MissingConstraints" />
+                tools:ignore="MissingConstraints"
+                tools:text="value" />
 
             <TextView
                 android:id="@+id/tv_date"
@@ -31,6 +32,7 @@
                 android:layout_height="wrap_content"
                 android:textColor="@color/black"
                 android:textSize="20sp"
+                android:paddingBottom="8dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="@+id/tv_accountBalance"
                 app:layout_constraintStart_toStartOf="@+id/tv_accountBalance"
