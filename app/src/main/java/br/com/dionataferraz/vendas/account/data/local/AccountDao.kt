@@ -1,4 +1,4 @@
-package br.com.dionataferraz.vendas.data.local
+package br.com.dionataferraz.vendas.account.data.local
 
 import androidx.room.Dao
 import androidx.room.Insert

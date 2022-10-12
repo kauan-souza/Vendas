@@ -5,8 +5,9 @@ import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import br.com.dionataferraz.vendas.HomeActivity
-import br.com.dionataferraz.vendas.ProfileActivity
 import br.com.dionataferraz.vendas.databinding.ActivityLoginBinding
+import br.com.dionataferraz.vendas.model.LoginModel
+import br.com.dionataferraz.vendas.profile.ProfileActivity
 
 class LoginActivity : AppCompatActivity() {
 
@@ -22,25 +23,30 @@ class LoginActivity : AppCompatActivity() {
         setContentView(view)
 
         binding.btLogin.setOnClickListener {
-            viewModel.login(null, null)
+            viewModel.login(
+                LoginModel(
+                    email = binding.etEmail.text.toString(),
+                    password = binding.etPassword.text.toString()
+                )
+            )
+        }
 
-            val intent = Intent(this, HomeActivity::class.java)
-            startActivity(intent)
+        viewModel.homeLiveData.observe(this) { it ->
+            if (it) {
+                Intent(this, HomeActivity::class.java).also {
+                    startActivity(it)
+                    finish()
+                }
+            }
         }
 
         binding.btRegistrar.setOnClickListener {
-            val intent = Intent(this, ProfileActivity::class.java)
-            startActivity(intent)
-        }
-
-        viewModel.shouldShowError.observe(this) { shouldShow ->
-            if (shouldShow) {
-                Toast.makeText(
-                    this,
-                    "Deu ruim",
-                    Toast.LENGTH_LONG
-                ).show()
+            Intent(this, ProfileActivity::class.java).also {
+                startActivity(it)
+                finish()
             }
         }
+
+
     }
 }

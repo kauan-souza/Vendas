@@ -1,8 +1,8 @@
-package br.com.dionataferraz.vendas.data.repository
+package br.com.dionataferraz.vendas.account.data.repository
 
-import br.com.dionataferraz.vendas.data.local.AccountModel
-import br.com.dionataferraz.vendas.data.local.Type
-import br.com.dionataferraz.vendas.data.local.LocalDataSource
+import br.com.dionataferraz.vendas.account.data.local.AccountModel
+import br.com.dionataferraz.vendas.account.data.local.Type
+import br.com.dionataferraz.vendas.account.data.local.LocalDataSource
 
 class AccountRepository {
 
