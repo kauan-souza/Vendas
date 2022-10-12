@@ -1,6 +1,7 @@
-package br.com.dionataferraz.vendas.data.local
+package br.com.dionataferraz.vendas.account.data.local
 
 import android.util.Log
+import br.com.dionataferraz.vendas.VendasDatabase
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 

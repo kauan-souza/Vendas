@@ -1,8 +1,8 @@
-package br.com.dionataferraz.vendas.data.domain.usecase
+package br.com.dionataferraz.vendas.account.data.domain.usecase
 
-import br.com.dionataferraz.vendas.data.local.AccountModel
-import br.com.dionataferraz.vendas.data.local.Type
-import br.com.dionataferraz.vendas.data.repository.AccountRepository
+import br.com.dionataferraz.vendas.account.data.local.AccountModel
+import br.com.dionataferraz.vendas.account.data.local.Type
+import br.com.dionataferraz.vendas.account.data.repository.AccountRepository
 
 class GetAccountUsecase {
 

@@ -26,13 +26,13 @@
             android:name=".transactions.TransactionsActivity"
             android:exported="false" />
         <activity
-            android:name=".ProfileActivity"
+            android:name=".profile.ProfileActivity"
             android:exported="false" />
         <activity
             android:name=".login.LoginActivity"
             android:exported="true" />
         <activity
-            android:name=".SplashActivity"
+            android:name=".splash.SplashActivity"
             android:exported="true"
             android:theme="@style/Theme.AppCompat.DayNight.NoActionBar">
             <intent-filter>

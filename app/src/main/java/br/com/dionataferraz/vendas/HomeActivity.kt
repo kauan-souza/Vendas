@@ -24,6 +24,10 @@ class HomeActivity : AppCompatActivity() {
             binding.tvAccountBalance.text = it.toString()
         }
 
+        viewModel.showName.observe(this) {
+            binding.textView.text = it.toString()
+        }
+
         binding.btSave2.setOnClickListener {
             val intent = Intent(this, AccountActivity::class.java)
             startActivity(intent)
@@ -33,8 +37,10 @@ class HomeActivity : AppCompatActivity() {
             startActivity(intent)
         }
     }
+
     override fun onStart() {
         super.onStart()
         viewModel.getBalance()
+        viewModel.getNome()
     }
 }

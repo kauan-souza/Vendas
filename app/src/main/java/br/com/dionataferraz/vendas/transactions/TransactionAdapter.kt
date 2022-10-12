@@ -1,10 +1,10 @@
-package br.com.dionataferraz.vendas
+package br.com.dionataferraz.vendas.transactions
 
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import br.com.dionataferraz.vendas.data.local.AccountModel
+import br.com.dionataferraz.vendas.account.data.local.AccountModel
 import br.com.dionataferraz.vendas.databinding.ItemListBinding
 
 class TransactionAdapter(private val listener: Listener) :

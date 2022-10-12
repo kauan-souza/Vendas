@@ -1,13 +1,11 @@
-package br.com.dionataferraz.vendas.data
+package br.com.dionataferraz.vendas.account.data
 
-import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import br.com.dionataferraz.vendas.data.domain.usecase.GetAccountUsecase
-import br.com.dionataferraz.vendas.data.local.AccountModel
-import br.com.dionataferraz.vendas.data.local.Type
+import br.com.dionataferraz.vendas.account.data.domain.usecase.GetAccountUsecase
+import br.com.dionataferraz.vendas.account.data.local.AccountModel
 import kotlinx.coroutines.launch
 
 class TransactionViewModel : ViewModel() {

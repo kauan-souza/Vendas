@@ -1,4 +1,4 @@
-package br.com.dionataferraz.vendas.data.local
+package br.com.dionataferraz.vendas.account.data.local
 
 data class AccountModel(
     val accountBalance: Double,
